@@ -3,111 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>注文確認（店内・デカフェ）</title>
+    <title>注文確認</title>
     <style>
         body {
             margin: 0;
             padding: 20px;
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0; /* 少し落ち着いた背景色 */
+            background-color: #f0f0f0;
         }
         .order-card {
             background: white;
-            padding: 50px 40px; /* パディングを増やして存在感を */
-            border-radius: 30px; /* より丸く */
+            padding: 40px 30px;
+            border-radius: 30px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             text-align: center;
             width: 100%;
             max-width: 420px;
-            
-            /* 【動き：フェードインと拡大】 */
             animation: showUp 0.6s ease-out;
         }
-
-        /* 【動きのアニメーション定義】 */
         @keyframes showUp {
-            from {
-                opacity: 0;
-                transform: scale(0.9) translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
-
         .icon {
-            font-size: 100px; /* アイコンを大きく */
-            margin-bottom: 25px;
+            font-size: 80px;
+            margin-bottom: 15px;
             display: inline-block;
-            
-            /* 【動き：優しく揺れる】 */
             animation: gentleShake 2s infinite ease-in-out;
         }
-
-        /* 【動きのアニメーション定義】 */
         @keyframes gentleShake {
             0%, 100% { transform: rotate(0deg); }
             25% { transform: rotate(-5deg); }
             75% { transform: rotate(5deg); }
         }
-
-        h1 {
-            color: #006241; /* スタバグリーン */
-            font-size: 28px;
-            margin: 10px 0;
-            font-weight: 800;
-        }
-        
-        .main-item {
-            font-size: 24px;
-            color: #333;
-            font-weight: bold;
-            margin: 15px 0;
-        }
+        h1 { color: #006241; font-size: 24px; margin-bottom: 20px; }
+        .main-item { font-size: 26px; color: #333; font-weight: 800; margin-bottom: 15px; }
         
         .details-wrapper {
-            margin-top: 25px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px; /* タグ間の隙間 */
+            gap: 10px;
         }
-        
         .tag {
-            display: inline-block;
-            padding: 10px 20px; /* タグを大きく */
-            border-radius: 25px;
-            font-size: 18px;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 16px;
             font-weight: bold;
         }
-
-        /* タグごとの色分け */
-        .tag.item {
-            background-color: #d4e9e2; /* 薄い緑（スタバ風） */
-            color: #006241;
-        }
-        
-        .tag.vessel {
-            background-color: #fff3e0; /* 薄いオレンジ */
-            color: #e65100;
-        }
-        
-        .tag.option {
-            background-color: #fce4ec; /* 薄いピンク */
-            color: #c2185b;
-            border: 2px solid #c2185b; /* デカフェを目立たせる */
-        }
-
-        .tag.location {
-            background-color: #e3f2fd; /* 薄い青 */
-            color: #1565c0;
-        }
-
+        .tag.size { background-color: #333; color: white; } /* サイズは黒背景で強調 */
+        .tag.item { background-color: #d4e9e2; color: #006241; }
+        .tag.vessel { background-color: #fff3e0; color: #e65100; }
+        .tag.option { background-color: #fce4ec; color: #c2185b; border: 2px solid #c2185b; }
+        .tag.location { background-color: #e3f2fd; color: #1565c0; }
     </style>
 </head>
 <body>
@@ -116,12 +68,16 @@
     <span class="icon">☕</span>
     <h1>ご注文</h1>
     
+    <div class="details-wrapper" style="margin-bottom: 15px;">
+        <div class="tag size">Short</div> <!-- サイズを追加 -->
+    </div>
+    
     <div class="main-item">ブリュードコーヒー</div>
     
     <div class="details-wrapper">
         <div class="tag vessel">マグカップ</div>
-        <div class="tag option">デカフェ</div> <!-- 【追加】デカフェオプション -->
-        <div class="tag location">店内利用</div>  <!-- 【追加】店内利用 -->
+        <div class="tag option">デカフェ</div>
+        <div class="tag location">店内利用</div>
     </div>
 </div>
 
